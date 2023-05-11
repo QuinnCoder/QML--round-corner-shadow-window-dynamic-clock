@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>sub.qml</file>
+        <file>FluAppBar.qml</file>
+        <file>MyClock.qml</file>
+    </qresource>
+</RCC>
