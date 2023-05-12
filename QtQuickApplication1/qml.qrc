@@ -7,5 +7,7 @@
         <file>images/minimize_hover.png</file>
         <file>images/minimize_normal.png</file>
         <file>MyButton.qml</file>
+        <file>CircleProgressBar.qml</file>
+        <file>WaveProgressBar.qml</file>
     </qresource>
 </RCC>

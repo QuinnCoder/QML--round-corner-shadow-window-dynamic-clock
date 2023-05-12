@@ -16,7 +16,7 @@ ApplicationWindow   {
     maximumWidth: width
     minimumHeight:height
     maximumHeight:height
-    flags: Qt.FramelessWindowHint | Qt.Window
+    flags: Qt.FramelessWindowHint | Qt.Window | Qt.WindowMinMaxButtonsHint
     modality:Qt.ApplicationModal
     color: "#00000000"
  
@@ -24,6 +24,19 @@ ApplicationWindow   {
     property int num1: 10
     property int num2: 20
     property int result: 0
+
+    property int value: 0
+
+    NumberAnimation {
+        id: na
+        target: root
+        property: "value"
+        from: 0
+        to: 100
+        duration: 3000
+        loops: 1
+        running: true
+    }
 
     Rectangle{
         id:inrec
@@ -75,6 +88,8 @@ ApplicationWindow   {
                 }
 
                 Button {
+                    objectName: "addBtn"
+                   
                     text: "Add"
                     onClicked: result = calculator.add(num1, num2)
                 }
@@ -127,6 +142,22 @@ ApplicationWindow   {
             onClicked: {
                Qt.quit()
             }
+        }
+
+        WaveProgressBar
+        {
+            id:wave_progessbar
+            x:10
+            y:inrec.height - 170
+            value: root.value
+        }
+
+        CircleProgressBar
+        {
+            id:circle_progessbar
+            x:inrec.width - 170
+            y:inrec.height - 170
+            value: root.value
         }
     }
   

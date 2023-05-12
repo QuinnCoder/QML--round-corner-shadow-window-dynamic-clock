@@ -3,7 +3,6 @@
 #include <QQmlContext>
 #include "calculator.h"
 
-
 int main(int argc, char *argv[])
 {
 #if defined(Q_OS_WIN)
@@ -18,9 +17,14 @@ int main(int argc, char *argv[])
 
     engine.rootContext()->setContextProperty("calculator", &calculator);
     engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
-    //engine.load(QUrl(QStringLiteral("qrc:/MyClock.qml")));
+   
     if (engine.rootObjects().isEmpty())
         return -1;
+
+    QObject* root = engine.rootObjects().first();
+    QObject* button = root->findChild<QObject*>("addBtn");
+    if (button)
+        button->setProperty("color", "#FF0000");
 
     return app.exec();
 }
