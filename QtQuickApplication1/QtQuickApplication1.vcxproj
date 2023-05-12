@@ -83,9 +83,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Calculator.cpp" />
     <ClCompile Include="main.cpp" />
     <QtRcc Include="qml.qrc" />
     <None Include="main.qml" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="Calculator.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

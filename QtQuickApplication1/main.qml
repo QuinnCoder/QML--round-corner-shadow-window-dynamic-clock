@@ -6,6 +6,7 @@ import QtGraphicalEffects 1.0
 import QtPositioning 5.5
 import QtLocation 5.6
 
+
 ApplicationWindow   {
     id:root
     visible: true
@@ -19,6 +20,10 @@ ApplicationWindow   {
     modality:Qt.ApplicationModal
     color: "#00000000"
  
+ 
+    property int num1: 10
+    property int num2: 20
+    property int result: 0
 
     Rectangle{
         id:inrec
@@ -50,6 +55,34 @@ ApplicationWindow   {
                         root.setY(root.y+delta.y)
                 }
                
+        }
+
+         Item{
+            Column {
+                spacing: 20
+                x:10
+                y:10
+                TextField {
+                    id: num1Field
+                    text: num1.toString()
+                    onTextChanged: num1 = parseInt(text)
+                }
+
+                TextField {
+                    id: num2Field
+                    text: num2.toString()
+                    onTextChanged: num2 = parseInt(text)
+                }
+
+                Button {
+                    text: "Add"
+                    onClicked: result = calculator.add(num1, num2)
+                }
+
+                Label {
+                    text: result.toString()
+                }
+            }
         }
 
         MyClock{	//实例化另一个文件，文件名称第一个要大写
@@ -84,7 +117,6 @@ ApplicationWindow   {
            }
         }
 
-        
         Button{
             id:close
             x:inrec.width - 60
@@ -98,7 +130,6 @@ ApplicationWindow   {
         }
     }
   
-    
     DropShadow {
         anchors.fill: inrec
         horizontalOffset: 1
@@ -109,7 +140,5 @@ ApplicationWindow   {
         color: "#33333F"
         Behavior on radius { PropertyAnimation { duration: 100 } }
     }
-
-
 }
 
