@@ -2,5 +2,10 @@
     <qresource prefix="/">
         <file>main.qml</file>
         <file>MyClock.qml</file>
+        <file>images/close_hover.png</file>
+        <file>images/close_normal.png</file>
+        <file>images/minimize_hover.png</file>
+        <file>images/minimize_normal.png</file>
+        <file>MyButton.qml</file>
     </qresource>
 </RCC>

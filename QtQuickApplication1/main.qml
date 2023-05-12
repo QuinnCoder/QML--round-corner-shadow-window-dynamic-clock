@@ -1,8 +1,10 @@
 import QtQuick 2.12
 import QtQuick.Window 2.12
 import QtQuick.Controls 2.5
-import QtGraphicalEffects 1.0
 
+import QtGraphicalEffects 1.0
+import QtPositioning 5.5
+import QtLocation 5.6
 
 ApplicationWindow   {
     id:root
@@ -16,8 +18,7 @@ ApplicationWindow   {
     flags: Qt.FramelessWindowHint | Qt.Window
     modality:Qt.ApplicationModal
     color: "#00000000"
-
-  
+ 
 
     Rectangle{
         id:inrec
@@ -56,8 +57,36 @@ ApplicationWindow   {
             //anchors.fill: parent
         }
    
+
+         MyButton{
+            id:minimize
+            x:inrec.width - 160
+            y:10
+            width:36
+            height:24
+            normalUrl : "qrc:/images/minimize_normal.png"     //常规状态下的图片路径
+            hoveredUrl : "qrc:/images/minimize_hover.png"    //悬浮
+            pressedUrl: "qrc:/images/minimize_hover.png"     //按下
+            disabledUrl : "qrc:/images/minimize_hover.png"   //禁用
+           onClicked: {
+               root.showMinimized()
+           }
+        }
+
+       MyButton{
+            id:close2
+            x:inrec.width - 120
+            y:10
+            width:36
+            height:24
+           onClicked: {
+               Qt.quit()
+           }
+        }
+
+        
         Button{
-            id:quxiao
+            id:close
             x:inrec.width - 60
             y:10
             width:50
@@ -67,11 +96,8 @@ ApplicationWindow   {
                Qt.quit()
             }
         }
-
-        
-       
     }
-
+  
     
     DropShadow {
         anchors.fill: inrec

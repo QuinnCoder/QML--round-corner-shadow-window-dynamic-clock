@@ -8,7 +8,7 @@ int main(int argc, char *argv[])
 #endif
 
     QGuiApplication app(argc, argv);
-
+    //app.setWindowIcon();
     QQmlApplicationEngine engine;
     engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
     //engine.load(QUrl(QStringLiteral("qrc:/MyClock.qml")));
