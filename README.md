@@ -8,7 +8,8 @@ VS+QT+QML  QML圆角阴影窗口时钟
 ![image](https://github.com/QuinnCoder/QML-/assets/38373100/26fd2de7-0ef6-43aa-b180-0733d88484c1)
 
 
-![image](https://github.com/QuinnCoder/QML--round-corner-shadow-window-dynamic-clock/assets/38373100/5e52b14a-03ef-4bbb-890e-de5669f83946)
+![image](https://github.com/QuinnCoder/QML--round-corner-shadow-window-dynamic-clock/assets/38373100/9c067caf-4165-401b-8603-000a80f68cb2)
 
 
 参考了链接 https://blog.csdn.net/m0_60259116/article/details/128459379
+https://blog.csdn.net/gongjianbo1992/article/details/122870986
