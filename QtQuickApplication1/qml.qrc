@@ -9,5 +9,13 @@
         <file>MyButton.qml</file>
         <file>CircleProgressBar.qml</file>
         <file>WaveProgressBar.qml</file>
+        <file>Current.qml</file>
+        <file>TotalStats.qml</file>
+        <file>UserStats.qml</file>
+        <file>SliderPage.qml</file>
+        <file>Windmill.qml</file>
+        <file>images/background.png</file>
+        <file>images/pinwheel.png</file>
+        <file>images/pole.png</file>
     </qresource>
 </RCC>

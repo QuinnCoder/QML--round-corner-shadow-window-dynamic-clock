@@ -11,7 +11,7 @@ ApplicationWindow   {
     id:root
     visible: true
     width:740
-    height: 710
+    height: 680
     minimumWidth: width
     maximumWidth: width
     minimumHeight:height
@@ -20,6 +20,24 @@ ApplicationWindow   {
     modality:Qt.ApplicationModal
     color: "#00000000"
  
+ 
+    property int num1: 10
+    property int num2: 20
+    property int result: 0
+
+    property int value: 0
+
+    NumberAnimation {
+        id: na
+        target: root
+        property: "value"
+        from: 0
+        to: 100
+        duration: 3000
+        loops: 2
+        running: true
+    }
+
     Rectangle{
         id:inrec
         anchors.fill: parent
@@ -35,11 +53,10 @@ ApplicationWindow   {
                     radius: inrec.radius
                 }
             }
-        MouseArea { //鼠标可拖动改变窗口位置区域
+        MouseArea { 
                 x:0
                 y:0
-                width:inrec.width - 160
-                height:50
+                anchors.fill: parent
                 acceptedButtons: Qt.LeftButton
                 property point clickPos: "0,0"
                 onPressed: { 
@@ -53,13 +70,39 @@ ApplicationWindow   {
                
         }
 
-        
-        SliderPage{	//实例化另一个文件，文件名称第一个要大写
-            id: sliderPage
-            x:0  //因为旁边有10的边距是阴影部分
-            y:50
-            width:720
-            height:640
+         Item{
+            Column {
+                spacing: 20
+                x:10
+                y:10
+                TextField {
+                    id: num1Field
+                    text: num1.toString()
+                    onTextChanged: num1 = parseInt(text)
+                }
+
+                TextField {
+                    id: num2Field
+                    text: num2.toString()
+                    onTextChanged: num2 = parseInt(text)
+                }
+
+                Button {
+                    objectName: "addBtn"
+                   
+                    text: "Add"
+                    onClicked: result = calculator.add(num1, num2)
+                }
+
+                Label {
+                    text: result.toString()
+                }
+            }
+        }
+
+        MyClock{	//实例化另一个文件，文件名称第一个要大写
+            id:clock
+            //anchors.fill: parent
         }
    
 
@@ -101,7 +144,21 @@ ApplicationWindow   {
             }
         }
 
-       
+        WaveProgressBar
+        {
+            id:wave_progessbar
+            x:10
+            y:inrec.height - 170
+            value: root.value
+        }
+
+        CircleProgressBar
+        {
+            id:circle_progessbar
+            x:inrec.width - 170
+            y:inrec.height - 170
+            value: root.value
+        }
     }
   
     DropShadow {
